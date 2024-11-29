@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
 
+It is deployed on netlify:- https://shreya-library-management-app.netlify.app
+
+Members can view ,checkout or return books. Anyone can login as member.
+Librarian can add,edit or delete books. Hardcoded login details for a librarian :- Email: librarian@gmail.com , Password: Librarian@123, Role: Librarian
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
