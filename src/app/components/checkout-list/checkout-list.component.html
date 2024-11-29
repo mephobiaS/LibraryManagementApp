@@ -1,0 +1,28 @@
+<nav class="navbar">
+  <h1>Checkedout Books</h1>
+</nav>
+
+<div class="container">
+  <table class="styled-table">
+    <thead>
+      <th>Sr No.</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>ISBN</th>
+      <th>Stock</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of checkoutBooks; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ b.title }}</td>
+        <td>{{ b.author }}</td>
+        <td>{{ b.isbn }}</td>
+        <td>{{ b.availability }}</td>
+        <td class="action-btns">
+          <button class="delete-btn" (click)="removeBook(b.id!)">Return</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

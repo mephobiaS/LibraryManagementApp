@@ -1,0 +1,11 @@
+<nav class="navbar">
+  <h1>Book Detail</h1>
+</nav>
+
+<div *ngIf="book" class="view-book">
+  <h2>{{ book.title }}</h2>
+  <p><strong>Author:</strong> {{ book.author }}</p>
+  <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+  <p><strong>Availability:</strong> {{ book.availability }}</p>
+  <button (click)="back()">Back to Books</button>
+</div>

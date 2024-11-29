@@ -1,0 +1,75 @@
+<nav class="navbar">
+  <h1>Library management</h1>
+  <div class="nav-btns">
+    <button
+      class="btn"
+      *ngIf="authService.getMemberRole() !== 'member'"
+      (click)="onAdd()"
+    >
+      ADD
+    </button>
+    <button
+      class="btn"
+      *ngIf="authService.getMemberRole() === 'member'"
+      (click)="onCheckout()"
+    >
+      Go to Checkout
+    </button>
+    <button class="btn" (click)="onLogout()">LOGOUT</button>
+  </div>
+</nav>
+
+<div class="container">
+  <table class="styled-table">
+    <thead>
+      <th>Sr No.</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>ISBN</th>
+      <th>Stock</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of books">
+        <td>{{ b.id }}</td>
+        <td>{{ b.title }}</td>
+        <td>{{ b.author }}</td>
+        <td>{{ b.isbn }}</td>
+        <td>{{ b.availability }}</td>
+        <td class="action-btns">
+          <button
+            class="edit-btn"
+            *ngIf="authService.getMemberRole() !== 'member'"
+            (click)="onEdit(b.id!)"
+          >
+            Edit
+          </button>
+
+          <button
+            class="delete-btn"
+            *ngIf="authService.getMemberRole() !== 'member'"
+            (click)="confirmDelete(b.id!)"
+          >
+            Delete
+          </button>
+
+          <button
+            class="edit-btn"
+            *ngIf="authService.getMemberRole() === 'member'"
+            (click)="viewBook(b.id!)"
+          >
+            View
+          </button>
+
+          <button
+            class="edit-btn"
+            *ngIf="authService.getMemberRole() === 'member'"
+            (click)="checkout(b.id!)"
+          >
+            Checkout
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
